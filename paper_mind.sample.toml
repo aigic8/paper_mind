@@ -1,0 +1,13 @@
+db_url = "db_url_is_good"
+token = "my_token_is_something_nice"
+fetch_freq_hours = 6
+
+[[sources]]
+name = "Energy Journal"
+kind = "scienceDirect"
+url = "energyJournalURL"
+
+[[sources]]
+name = "Wind Journal"
+kind = "scienceDirect"
+url = "windJournalURL"
