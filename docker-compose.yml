@@ -1,0 +1,7 @@
+version: '3'
+services:
+  papermind:
+    build: .
+    volumes:
+      - runtime:/app/runtime
+
