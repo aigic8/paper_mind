@@ -3,5 +3,5 @@ services:
   papermind:
     build: .
     volumes:
-      - runtime:/app/runtime
+      - ./runtime:/app/runtime
 

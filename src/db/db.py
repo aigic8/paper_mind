@@ -1,5 +1,5 @@
 from sqlalchemy.orm import declarative_base, sessionmaker, Session
-from sqlalchemy import String, create_engine, Column, DateTime, Integer
+from sqlalchemy import String, create_engine, Column, DateTime, BigInteger
 from sqlalchemy.sql import func
 
 Base = declarative_base()
@@ -29,7 +29,7 @@ class Source(Base):
 class Group(Base):
     __tablename__ = "groups"
 
-    chat_id = Column(Integer, primary_key=True, autoincrement=False)
+    chat_id = Column(BigInteger, primary_key=True, autoincrement=False)
     created_at = Column(DateTime, server_default=func.now())
 
     def __init__(self, chat_id: int):

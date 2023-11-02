@@ -1,3 +1,5 @@
+import logging
+
 from telegram import Update
 from telegram.ext import ApplicationBuilder, Application, ChatMemberHandler, ContextTypes
 from src.db.db import DB
@@ -34,8 +36,10 @@ class Bot:
             return
         new_status = update.my_chat_member.new_chat_member.status
         if new_status == CHAT_MEMBER_STATUS_MEMBER:
+            logging.info(f"joined group {update.my_chat_member.chat.id}")
             self._db.group_create(update.my_chat_member.chat.id)
         elif new_status == CHAT_MEMBER_STATUS_LEFT or new_status == CHAT_MEMBER_STATUS_BANNED:
+            logging.info(f"left group {update.my_chat_member.chat.id}")
             self._db.group_delete(update.my_chat_member.chat.id)
 
 

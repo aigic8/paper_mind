@@ -1,6 +1,7 @@
 db_url = "db_url_is_good"
 token = "my_token_is_something_nice"
 fetch_freq_hours = 6
+log_path = "runtime/papermind.log"
 
 [[sources]]
 name = "Energy Journal"
@@ -11,3 +12,59 @@ url = "energyJournalURL"
 name = "Wind Journal"
 kind = "scienceDirect"
 url = "windJournalURL"
+
+[[sources]]
+name = "Energy Reports Journal"
+kind = "scienceDirect"
+url = "https://rss.sciencedirect.com/publication/science/23524847"
+
+[[sources]]
+name = "Energy Strategy Reviews Journal"
+kind = "scienceDirect"
+url = "https://rss.sciencedirect.com/publication/science/2211467X"
+
+[[sources]]
+name = " Environmental Pollution Journal"
+kind = "scienceDirect"
+url = "https://rss.sciencedirect.com/publication/science/02697491"
+
+[[sources]]
+name = "Cleaner Production Journal"
+kind = "scienceDirect"
+url = "https://rss.sciencedirect.com/publication/science/09596526"
+
+[[sources]]
+name = "Energy Storage Journal"
+kind = "scienceDirect"
+url = "https://rss.sciencedirect.com/publication/science/2352152X"
+
+[[sources]]
+name = "Power Sources Journal"
+kind = "scienceDirect"
+url = "https://rss.sciencedirect.com/publication/science/03787753"
+
+[[sources]]
+name = "Renewable and Sustainable Energy Reviews Journal"
+kind = "scienceDirect"
+url = "https://rss.sciencedirect.com/publication/science/13640321"
+
+[[sources]]
+name = "Renewable and Sustainable Energy Reviews Journal"
+kind = "scienceDirect"
+url = "https://rss.sciencedirect.com/publication/science/13640321"
+
+[[sources]]
+name = "Renewable Energy Journal"
+kind = "scienceDirect"
+url = "https://rss.sciencedirect.com/publication/science/09601481"
+
+[[sources]]
+name = "Solar Energy Journal"
+kind = "scienceDirect"
+url = "https://rss.sciencedirect.com/publication/science/0038092X"
+
+[[sources]]
+name = "Sustainable Energy Technologies and Assessments Journal"
+kind = "scienceDirect"
+url = "https://rss.sciencedirect.com/publication/science/22131388"
+
