@@ -1,4 +1,5 @@
 import logging
+import asyncio
 
 from src.db.db import DB
 from src.bot.bot import Bot
@@ -7,7 +8,7 @@ from src.config import load_config
 CONFIG_PATH = "runtime/paper_mind.toml"
 
 
-def main():
+async def main():
     c = load_config(CONFIG_PATH)
     db = DB(c.db_url)
     bot = Bot(c.token, db, c.fetch_freq_hours)
@@ -23,7 +24,7 @@ def main():
         if db_source is None:
             db.source_create(source.name, source.url, source.kind)
 
-    bot.start()
+    await bot.start()
 
 
 if __name__ == "__main__":

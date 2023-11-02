@@ -19,12 +19,12 @@ class ScheduledFetcher:
         self.freq_hours = frequency_hours
         self._bot = bot
 
-    def start(self):
-        self.check_for_new_articles()
+    async def start(self):
+        await self.check_for_new_articles()
         logging.info(f"scheduled task runner for every {self.freq_hours} hours")
         schedule.every(self.freq_hours).hours.do(self.check_for_new_articles)
 
-    def check_for_new_articles(self):
+    async def check_for_new_articles(self):
         logging.info("checking for new articles")
         sources = self._db.source_get_all()
         logging.debug(f"found {len(sources)} sources")
@@ -45,7 +45,7 @@ class ScheduledFetcher:
                 if should_notify_user:
                     for article in new_articles:
                         for group in groups:
-                            self._bot.send_message(group.chat_id, new_article_text(source.name, article))
+                            await self._bot.send_message(group.chat_id, new_article_text(source.name, article))
                 else:
                     logging.warning(f"unknown source kind: {source.kind}")
 

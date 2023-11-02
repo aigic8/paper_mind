@@ -1,7 +1,7 @@
 import logging
 
 from telegram import Update
-from telegram.ext import ApplicationBuilder, Application, ChatMemberHandler, ContextTypes
+from telegram.ext import ApplicationBuilder, Application, ChatMemberHandler, ContextTypes, Handler
 from src.db.db import DB
 from src.bot.scheduled_fetcher import ScheduledFetcher
 
@@ -25,10 +25,11 @@ class Bot:
         self._app = ApplicationBuilder().token(token).build()
         self._db = db
 
-    def start(self):
+    async def start(self):
         self._app.add_handler(ChatMemberHandler(self._chat_member_handler))
+        self._app.add_handler()
         sf = ScheduledFetcher(self.fetch_freq_hours, self._db, self._app.bot)
-        sf.start()
+        await sf.start()
         self._app.run_polling()
 
     async def _chat_member_handler(self, update: Update, _: ContextTypes.DEFAULT_TYPE):
